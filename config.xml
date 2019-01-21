@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Création de l'objet metier et dao -->
+	<bean class="dao.DaoImplV2" id="d"></bean>
+	<bean class="metier.MetierImpl" id="metier">
+		<!-- Injection des dependances; Association des objets metier et dao.
+		property fait appel directement à la methode setDao
+		En appelant la methode setDao je lui donne en paramétre un objet de type
+		d-->
+		<property name="dao" ref="d"></property>
+	</bean>
+
+</beans>
